@@ -72,7 +72,6 @@ Resources:
             Resource: !Sub '${S3WebsiteBucket.Arn}/*'
             Condition:
               StringEquals:
-                # Wildcard used to prevent circular dependency errors during first creation
                 AWS:SourceArn: !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${CloudFrontDistribution}"
 
   BuildProject:
